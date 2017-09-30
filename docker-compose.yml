@@ -4,8 +4,9 @@ nginx:
     - "80:80"
   links:
     - php
-  volumes:
-    - ~/opt:/opt
+  # with php share opt dir
+  volumes_from:
+    - php
 php:
   build: ./php
   ports:
