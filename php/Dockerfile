@@ -1,8 +1,17 @@
-FROM php:5.6-fpm
+FROM php:7.1-fpm
 COPY ./config/php.ini /usr/local/etc/php/conf.d/
+COPY redis-3.1.4.tgz /home/redis.tgz
+
 # ADD php-fpm.conf /usr/local/etc/php-fpm.conf
-COPY redis-2.2.7.tgz /home/redis.tgz
-RUN apt-get update -y && apt-get install -y sendmail libpng-dev && apt-get install -y vim
+RUN apt-get update \
+&& apt-get install -y \
+ sendmail \
+ libpng-dev \
+ vim \
+ git
+# Install phpredis
+# RUN git clone -b php7 https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis \
+#   && docker-php-ext-install redis
 RUN docker-php-ext-install gd \
 && docker-php-ext-install pdo_mysql \
 && pecl install /home/redis.tgz && echo "extension=redis.so">/usr/local/etc/php/conf.d/redis.ini
