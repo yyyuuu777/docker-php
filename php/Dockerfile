@@ -1,6 +1,6 @@
 FROM php:7.1-fpm
 COPY ./config/php.ini /usr/local/etc/php/conf.d/
-COPY redis-3.1.4.tgz /home/redis.tgz
+COPY redis-3.0.0.tgz /home/redis.tgz
 
 # ADD php-fpm.conf /usr/local/etc/php-fpm.conf
 RUN apt-get update \
