@@ -13,6 +13,7 @@ php:
     - "9000:9000"
   links:
     - mysql
+    - redis
   volumes:
     - ~/opt:/opt
 mysql:

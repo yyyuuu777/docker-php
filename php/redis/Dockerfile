@@ -1,1 +1,1 @@
-From redis:3.0
+From redis:4.0

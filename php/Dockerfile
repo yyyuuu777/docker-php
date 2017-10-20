@@ -1,4 +1,4 @@
-FROM php:7.1-fpm
+FROM php:7.0-fpm
 COPY ./config/php.ini /usr/local/etc/php/conf.d/
 COPY redis-3.0.0.tgz /home/redis.tgz
 
